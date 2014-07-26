@@ -1,0 +1,8 @@
+--index-url https://pypi.python.org/simple/
+
+sphinx
+sphinxcontrib-napoleon
+sphinx_rtd_theme
+-e hg+http://code.google.com/p/pyglet#egg=pyglet
+
+-e .

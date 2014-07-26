@@ -1,0 +1,28 @@
+language: python
+python: 3.4
+
+env:
+  global:
+    LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+  matrix:
+    - TOX_ENV=check
+    - TOX_ENV=py33
+    - TOX_ENV=py34
+    - TOX_ENV=coverage
+    - TOX_ENV=docs
+
+before_install:
+  - python --version
+  - uname -a
+  - lsb_release -a
+
+install:
+  - pip install tox
+script:
+
+  - travis_wait tox -e $TOX_ENV
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
