@@ -41,7 +41,7 @@ With pyglet2d, you can incorporate 2D shapes into your applications without havi
 Features
 ========
 
-- In addition the standard constructor (from a list or array of points), ``Shape``s can be constructed with
+- In addition to the standard constructor (from a list or array of points), four others are provided:
   ``Shape.regular_polygon``, ``Shape.circle``, ``Shape.rectangle``, and ``Shape.from_dict``.
   The latter is a specification-based constructor that is easy to be use with JSON or YAML.
 - ``Shape`` has two methods that are useful as `pyglet`_ callbacks: ``Shape.draw`` and ``Shape.update``.
