@@ -3,7 +3,7 @@ source = src
 
 [run]
 source = src
-parallel = true
+parallel = false
 
 [report]
 show_missing = true
