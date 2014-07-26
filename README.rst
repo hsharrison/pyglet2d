@@ -21,7 +21,7 @@ Polygon primitives for `pyglet`_.
     :alt: PyPi Package
     :target: https://pypi.python.org/pypi/pyglet2d
 
-.. |license-badge| image:: http://img.shields.io/badge/license-MIT-blue.png?style=flat
+.. |license-badge| image:: http://img.shields.io/badge/license-BSD-blue.png?style=flat
     :alt: License
     :target: https://pypi.python.org/pypi/pyglet2d
 
