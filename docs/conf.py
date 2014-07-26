@@ -92,15 +92,15 @@ intersphinx_mapping = {
 rst_epilog = """
 .. _pyglet: http://www.pyglet.org/index.html
 
-.. |Polygon| replace: :class:`Polygon3.Polygon`
-.. |array| replace: :class:`array <numpy.ndarray>`
+.. |Polygon| replace:: :class:`Polygon3.Polygon`
+.. |array| replace:: :class:`array <numpy.ndarray>`
 
-.. |Shape| replace: :class:`Shape`
-.. |Shape.circle| replace: :meth:`Shape.circle`
-.. |Shape.rectangle| replace: :meth:`Shape.rectangle`
-.. |Shape.regular_polygon| replace: :meth:`Shape.regular_polygon`
-.. |Shape.from_dict| replace: :meth:`Shape.from_dict`
-.. |Shape.scale| replace: :meth:`Shape.scale`
-.. |Shape.translate| replace: :meth:`Shape.translate`
+.. |Shape| replace:: :class:`Shape`
+.. |Shape.circle| replace:: :meth:`Shape.circle`
+.. |Shape.rectangle| replace:: :meth:`Shape.rectangle`
+.. |Shape.regular_polygon| replace:: :meth:`Shape.regular_polygon`
+.. |Shape.from_dict| replace:: :meth:`Shape.from_dict`
+.. |Shape.scale| replace:: :meth:`Shape.scale`
+.. |Shape.translate| replace:: :meth:`Shape.translate`
 
 """
