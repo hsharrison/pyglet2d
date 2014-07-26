@@ -1,6 +1,29 @@
+from unittest.mock import Mock
+
 import numpy as np
+import pytest
+import pyglet
 
 from pyglet2d import Shape
+
+
+def vertex_list_side_effect(*args, **kwargs):
+    mock_vertex_list_instance = Mock()
+    mock_vertex_list_instance.draw = Mock(return_value=None)
+    mock_vertex_list_instance.args = args
+    mock_vertex_list_instance.kwargs = kwargs
+    return mock_vertex_list_instance
+
+
+@pytest.fixture(autouse=True)
+def mock_pyglet_graphics(monkeypatch):
+    mock_vertex_list = Mock(side_effect=vertex_list_side_effect)
+    mock_graphics = Mock
+    mock_graphics.vertex_list_indexed = mock_vertex_list
+    monkeypatch.setattr(pyglet, 'graphics', mock_graphics)
+    mock_gl = Mock()
+    mock_gl.attach_mock(Mock(name='GL_TRIANGLES'), 'GL_TRIANGLES')
+    monkeypatch.setattr(pyglet, 'gl', mock_gl)
 
 
 def test_regular_polygon():
@@ -187,3 +210,41 @@ def test_bool():
 
 def test_getitem():
     assert np.all(Shape.regular_polygon([0, 0], 1, 10)[0] == [1, 0])
+
+
+def test_vertex_list():
+    shape = Shape.rectangle([[-1, -1], [1, 1]], color=(100, 100, 100))
+    indices = [0, 1, 2,
+               0, 2, 3,
+               0, 3, 4,
+               0, 4, 1]
+    vertices = [0, 0,
+                -1, -1,
+                1, -1,
+                1, 1,
+                -1, 1],
+    colors = 5 * [100, 100, 100]
+
+    args = shape._vertex_list.args
+    assert len(args) == 4
+    assert args[0] == 5
+    assert args[1] == indices
+    assert args[2][0] == 'v2f'
+    assert np.all(np.isclose(args[2][1], vertices))
+    assert args[3][0] == 'c3B'
+    assert np.all(np.isclose(args[3][1], colors))
+
+
+def test_enable_disable():
+    shape = Shape.rectangle([[-1, -1], [1, 1]], color=(100, 100, 100))
+    shape.enable(False)
+    shape.draw()
+    assert not shape._vertex_list.draw.called
+    shape.enable(True)
+    shape.draw()
+    assert shape._vertex_list.draw.call_count == 1
+    call_args = shape._vertex_list.draw.call_args
+    assert len(call_args[0]) == 1
+    gl_triangles = call_args[0][0]
+    assert isinstance(gl_triangles, Mock)
+
