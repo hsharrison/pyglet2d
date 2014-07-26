@@ -3,8 +3,6 @@ import re
 import os
 import sys
 
-import pyglet2d
-
 MOCK_MODULES = ['numpy', 'Polygon', 'Polygon.Utils']
 
 extensions = [
@@ -45,6 +43,7 @@ class Mock(object):
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
 
+import pyglet2d
 
 if os.getenv('SPELLCHECK'):
     extensions += 'sphinxcontrib.spelling',
