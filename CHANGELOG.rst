@@ -2,6 +2,13 @@
 Changelog
 =========
 
+0.1.1 (2014-07-26)
+------------------
+
+* Mocking of graphics calls to pyglet, for testing without a display (e.g., on Travis).
+* Fixed intersphinx links in docs.
+* Fixed coveralls.io integration.
+
 0.1.0 (2014-07-25)
 ------------------
 
