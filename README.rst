@@ -43,7 +43,7 @@ Features
 
 - In addition to the standard constructor (from a list or array of points), four others are provided:
   ``Shape.regular_polygon``, ``Shape.circle``, ``Shape.rectangle``, and ``Shape.from_dict``.
-  The latter is a specification-based constructor that is easy to be use with JSON or YAML.
+  The latter is a specification-based constructor that is easy to use with JSON or YAML.
 - ``Shape`` has two methods that are useful as `pyglet`_ callbacks: ``Shape.draw`` and ``Shape.update``.
   ``Shape``s can be given a velocity, and their positions will be updated when ``Shape.update`` is called.
 - A ``Shape`` can be scaled and translated using the methods ``Shape.scale`` and ``Shape.translate``,
