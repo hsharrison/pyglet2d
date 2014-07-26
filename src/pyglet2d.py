@@ -90,7 +90,7 @@ class Shape:
         start_angle : float, optional
             Where to put the first point, relative to `center`,
             in degrees counter-clockwise starting from the horizontal axis.
-        **kwargs
+        kwargs
             Other keyword arguments are passed to the |Shape| constructor.
 
         """
@@ -108,7 +108,7 @@ class Shape:
         n_vertices : int, optional
             Number of points to draw.
             Decrease for performance, increase for appearance.
-        **kwargs
+        kwargs
             Other keyword arguments are passed to the |Shape| constructor.
 
         """
@@ -122,7 +122,7 @@ class Shape:
         ----------
         vertices : array-like
             An array containing the ``[x, y]`` positions of two corners.
-        **kwargs
+        kwargs
             Other keyword arguments are passed to the |Shape| constructor.
 
         """
