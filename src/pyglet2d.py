@@ -140,7 +140,7 @@ class Shape:
         spec : dict
             A dictionary with either the fields ``'center'`` and ``'radius'`` (for a circle),
             ``'center'``, ``'radius'``, and ``'n_vertices'`` (for a regular polygon),
-            or ``'vertices'`.
+            or ``'vertices'``.
             If only two vertices are given, they are assumed to be lower left and top right corners of a rectangle.
             Other fields are interpreted as keyword arguments.
 
