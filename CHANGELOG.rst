@@ -12,7 +12,7 @@ Changelog
 * ``graphics_test.py`` renamed to ``graphics_demo.py``.
 * Implement ``Shape.flip_x``, ``Shape.flip_y``, and ``Shape.flip``.
 * Explicitly set the ``Polygon3`` data style to ``STYLE_NUMPY``.
-* Implement ``Shape`` subtraction.
+* Implement ``Shape`` union and difference with the addition and subtraction operators.
 * Don't throw an error when comparing the equality of shapes with different numbers of vertices.
 
 0.1.2 (2014-07-26)

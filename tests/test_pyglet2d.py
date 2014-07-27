@@ -226,7 +226,9 @@ def test_covers():
 
 
 def test_union():
-    assert Shape.rectangle([[-1, 0], [0, 1]]) | Shape.rectangle([[0, 0], [1, 1]]) == Shape.rectangle([[-1, 0], [1, 1]])
+    assert (Shape.rectangle([[-1, 0], [0, 1]]) | Shape.rectangle([[0, 0], [1, 1]]) ==
+            Shape.rectangle([[-1, 0], [0, 1]]) + Shape.rectangle([[0, 0], [1, 1]]) ==
+            Shape.rectangle([[-1, 0], [1, 1]]))
 
 
 def test_intersection():

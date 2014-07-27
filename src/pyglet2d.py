@@ -433,6 +433,8 @@ class Shape:
         return self.poly.nPoints()
 
     def __add__(self, other):
+        if isinstance(other, Shape):
+            return type(self)(self.poly + other.poly)
         return type(self)(self.vertices + other, **self._kwargs)
 
     __radd__ = __add__
