@@ -414,6 +414,8 @@ class Shape:
 
     def __eq__(self, other):
         if isinstance(other, Shape):
+            if len(self) != len(other):
+                return False
             return (np.all(np.isclose(np.sort(self.vertices, axis=0), np.sort(other.vertices, axis=0))) and
                     self.colors == other.colors and
                     self.color == other.color and

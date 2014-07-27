@@ -256,6 +256,11 @@ def test_distance_to():
     assert np.isclose(shape.distance_to([1, 1]), np.sqrt(2))
 
 
+def test_eq():
+    assert Shape.regular_polygon([0, 0], 1, 4) != Shape.regular_polygon([0, 0], 1, 5)
+    assert Shape.regular_polygon([0, 0], 1, 4) == Shape.regular_polygon([0, 0], 1, 4, start_angle=np.pi)
+
+
 def test_neq():
     assert Shape.circle([0, 0], 1) != 0
 

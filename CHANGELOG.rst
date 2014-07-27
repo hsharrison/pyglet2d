@@ -13,6 +13,7 @@ Changelog
 * Implement ``Shape.flip_x``, ``Shape.flip_y``, and ``Shape.flip``.
 * Explicitly set the ``Polygon3`` data style to ``STYLE_NUMPY``.
 * Implement ``Shape`` subtraction.
+* Don't throw an error when comparing the equality of shapes with different numbers of vertices.
 
 0.1.2 (2014-07-26)
 ------------------
