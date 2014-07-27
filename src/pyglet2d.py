@@ -231,9 +231,6 @@ class Shape:
             If not passed, the center of the shape is used.
 
         """
-        if np.any(factor == 0):
-            return
-
         factor = np.asarray(factor)
 
         if len(factor.shape):
