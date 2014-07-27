@@ -9,56 +9,55 @@ from Polygon.Utils import pointList as point_list
 
 
 class Shape:
+    """Graphical polygon primitive for use with `pyglet`_.
+
+    Alternative constructor methods:
+
+    - |Shape.circle|
+    - |Shape.rectangle|
+    - |Shape.regular_polygon|
+    - |Shape.from_dict|
+
+    Parameters
+    ----------
+    vertices : array-like or |Polygon|.
+        If a |Polygon| is passed, its points will be used.
+        Otherwise, `vertices` should be a sequence of `[x, y]` locations or an array with x and y columns.
+    color : str or 3-tuple of int, optional
+        Color, in R, G, B format.
+        Alternatively, a key that refers to an element of `colors`.
+    velocity : array-like
+        Speed and direction of motion, in [dx_dt, dy_dt] format.
+    colors : dict of tuple, optional
+        Named colors, defined as R, G, B tuples.
+        Useful for easily switching between a set of colors.
+
+    Attributes
+    ----------
+    poly : |Polygon|
+        Associated |Polygon| object.
+    vertices : |array|
+        An array of points, with x and y columns. Read-only.
+    center : |array|
+        The centroid of the shape.
+        Setting center calls |Shape.translate|.
+    position : |array|
+        Alias for `center`.
+    radius : |array|
+        Mean distance from each point to the center.
+        Setting radius calls |Shape.scale|.
+    color : str or tuple of int
+        The current color, in R, G, B format if `colors` was not passed.
+        Otherwise, the current color is represented as a key in `colors`.
+    colors : dict of tuple
+        Named colors.
+    velocity : |array|
+        Speed and direction of motion.
+    enabled : bool
+        If False, the shape will not be drawn.
+
+    """
     def __init__(self, vertices, color=(255, 255, 255), velocity=(0, 0), colors=None):
-        """Graphical polygon primitive for use with `pyglet`_.
-
-        Alternative constructor methods:
-
-        - |Shape.circle|
-        - |Shape.rectangle|
-        - |Shape.regular_polygon|
-        - |Shape.from_dict|
-
-        Parameters
-        ----------
-        vertices : array-like or |Polygon|.
-            If a |Polygon| is passed, its points will be used.
-            Otherwise, `vertices` should be a sequence of `[x, y]` locations or an array with x and y columns.
-        color : str or 3-tuple of int, optional
-            Color, in R, G, B format.
-            Alternatively, a key that refers to an element of `colors`.
-        velocity : array-like
-            Speed and direction of motion, in [dx_dt, dy_dt] format.
-        colors : dict of tuple, optional
-            Named colors, defined as R, G, B tuples.
-            Useful for easily switching between a set of colors.
-
-        Attributes
-        ----------
-        poly : |Polygon|
-            Associated |Polygon| object.
-        vertices : |array|
-            An array of points, with x and y columns. Read-only.
-        center : |array|
-            The centroid of the shape.
-            Setting center calls |Shape.translate|.
-        position : |array|
-            Alias for `center`.
-        radius : |array|
-            Mean distance from each point to the center.
-            Setting radius calls |Shape.scale|.
-        color : str or tuple of int
-            The current color, in R, G, B format if `colors` was not passed.
-            Otherwise, the current color is represented as a key in `colors`.
-        colors : dict of tuple
-            Named colors.
-        velocity : |array|
-            Speed and direction of motion.
-        enabled : bool
-            If False, the shape will not be drawn.
-
-
-        """
         if isinstance(vertices, Polygon):
             self.poly = vertices
         else:
