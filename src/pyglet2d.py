@@ -28,6 +28,8 @@ class Shape:
         Alternatively, a key that refers to an element of `colors`.
     velocity : array-like
         Speed and direction of motion, in [dx_dt, dy_dt] format.
+    angular_velocity : float
+        Speed of angular motion, in counter-clockwise radians per second.
     colors : dict of tuple, optional
         Named colors, defined as R, G, B tuples.
         Useful for easily switching between a set of colors.
@@ -52,12 +54,14 @@ class Shape:
     colors : dict of tuple
         Named colors.
     velocity : |array|
-        Speed and direction of motion.
+        Speed and direction of linear motion.
+    Angular_velocity : float
+        Speed of angular motion, in counter-clockwise radians per second.
     enabled : bool
         If False, the shape will not be drawn.
 
     """
-    def __init__(self, vertices, color=(255, 255, 255), velocity=(0, 0), colors=None):
+    def __init__(self, vertices, color=(255, 255, 255), velocity=(0, 0), angular_velocity=0, colors=None):
         if isinstance(vertices, Polygon):
             self.poly = vertices
         else:
@@ -72,6 +76,7 @@ class Shape:
             self.colors = {'primary': color}
 
         self.velocity = np.asarray(velocity)
+        self.angular_velocity = angular_velocity
 
         # Construct vertex_list.
         self._vertex_list = self._get_vertex_list()
@@ -294,8 +299,8 @@ class Shape:
         dt : float
 
         """
-        shift = dt * self.velocity
-        self.poly.shift(*shift)
+        self.translate(dt * self.velocity)
+        self.rotate(dt * self.angular_velocity)
 
     def enable(self, enabled):
         """Set whether the shape should be drawn.

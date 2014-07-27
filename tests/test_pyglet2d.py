@@ -112,6 +112,10 @@ def test_update():
     shape.update(1)
     assert np.all(np.isclose(shape.center, [1, 1]))
 
+    shape = Shape.regular_polygon([0, 0], 1, 6, angular_velocity=1, velocity=[-2, 2])
+    shape.update(0.5)
+    assert shape == Shape.regular_polygon([-1, 1], 1, 6, angular_velocity=1, velocity=[-2, 2], start_angle=0.5)
+
 
 def test_repr():
     shape = Shape.circle([0, 0], 1, velocity=[1, 1], color=(1, 2, 3), colors={'a': (20, 6, 169)})

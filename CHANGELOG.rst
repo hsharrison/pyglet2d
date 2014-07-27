@@ -7,6 +7,7 @@ Changelog
 
 * Added optional arguments ``y_factor`` and ``center`` to ``Shape.scale``.
 * Implemented ``Shape.rotate``.
+* Implemented angular velocity.
 * Argument ``start_angle`` in ``Shape.regular_polygon`` is now in radians.
 
 0.1.2 (2014-07-26)
