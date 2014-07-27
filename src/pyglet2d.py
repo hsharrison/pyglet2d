@@ -208,7 +208,7 @@ class Shape:
     def distance_to(self, point):
         """Distance from center to arbitrary point.
 
-        Parameters`
+        Parameters
         ----------
         point : array-like
 
