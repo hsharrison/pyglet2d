@@ -2,6 +2,12 @@
 Changelog
 =========
 
+0.1.2 (2014-07-26)
+------------------
+
+* Fixed Shape docstring.
+* Changed docs from napoleon to numpydoc.
+
 0.1.1 (2014-07-26)
 ------------------
 
