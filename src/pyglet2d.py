@@ -4,8 +4,11 @@ from itertools import chain
 
 import numpy as np
 import pyglet
-from Polygon import Polygon
+from Polygon import Polygon, setDataStyle, STYLE_NUMPY
 from Polygon.Utils import pointList as point_list
+
+
+setDataStyle(STYLE_NUMPY)
 
 
 class Shape:
