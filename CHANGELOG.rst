@@ -10,6 +10,7 @@ Changelog
 * Implemented angular velocity.
 * Argument ``start_angle`` in ``Shape.regular_polygon`` is now in radians.
 * ``graphics_test.py`` renamed to ``graphics_demo.py``.
+* Implement ``Shape.flip_x``, ``Shape.flip_y``, and ``Shape.flip``.
 
 0.1.2 (2014-07-26)
 ------------------

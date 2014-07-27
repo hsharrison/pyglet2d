@@ -154,6 +154,26 @@ def test_rotate():
     assert shape == Shape.rectangle([[1, -1], [3, 1]])
 
 
+def test_flip():
+    shape = Shape.rectangle([[-1, -1], [1, 1]])
+    shape.flip_x()
+    assert shape == Shape.rectangle([[-1, -1], [1, 1]])
+    shape.flip_y()
+    assert shape == Shape.rectangle([[-1, -1], [1, 1]])
+
+    shape.flip_x([1, 0])
+    assert shape == Shape.rectangle([[1, -1], [3, 1]])
+
+    shape.flip_y([0, 1])
+    assert shape == Shape.rectangle([[1, 1], [3, 3]])
+
+    shape -= [2, 2]
+    shape.flip(np.pi/4)
+    assert shape == Shape.rectangle([[-1, -1], [1, 1]])
+    shape.flip(np.pi/4, center=[-1, 1])
+    assert shape == Shape.rectangle([[-3, 1], [-1, 3]])
+
+
 def test_from_polygon():
     shape = Shape.circle([0, 0], 1)
     assert shape == Shape(shape.poly)

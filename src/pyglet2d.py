@@ -274,6 +274,53 @@ class Shape:
             args.extend(center)
         self.poly.rotate(*args)
 
+    def flip_x(self, center=None):
+        """Flip the shape in the x direction, in-place.
+
+        Parameters
+        ----------
+        center : array-like, optional
+            Point about which to flip.
+            If not passed, the center of the shape will be used.
+
+         """
+        if center is None:
+            self.poly.flip()
+        else:
+            self.poly.flip(center[0])
+
+    def flip_y(self, center=None):
+        """Flip the shape in the y direction, in-place.
+
+        Parameters
+        ----------
+        center : array-like, optional
+            Point about which to flip.
+            If not passed, the center of the shape will be used.
+
+         """
+        if center is None:
+            self.poly.flop()
+        else:
+            self.poly.flop(center[1])
+
+    def flip(self, angle, center=None):
+        """ Flip the shape in an arbitrary direction.
+
+        Parameters
+        ----------
+        angle : array-like
+            The angle, in radians counter-clockwise from the horizontal axis,
+            defining the line about which to flip the shape.
+        center : array-like, optional
+            The point about which to flip.
+            If not passed, the center of the shape will be used.
+
+        """
+        self.rotate(-angle, center=center)
+        self.flip_y(center=center)
+        self.rotate(angle, center=center)
+
     def _get_vertex_list(self):
         indices = []
         for i in range(1, len(self) + 1):
