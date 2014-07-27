@@ -138,6 +138,18 @@ def test_scale():
     assert shape == Shape.rectangle([[-3, -3], [1, 1]])
 
 
+def test_rotate():
+    shape = Shape.rectangle([[-1, -1], [1, 1]])
+    shape.rotate(np.pi/2)
+    assert shape == Shape.rectangle([[-1, -1], [1, 1]])
+    shape.rotate(np.pi/4)
+    assert shape == Shape.regular_polygon([0, 0], np.sqrt(2), 4)
+
+    shape = Shape.rectangle([[-1, -1], [1, 1]])
+    shape.rotate(np.pi/2, [1, 1])
+    assert shape == Shape.rectangle([[1, -1], [3, 1]])
+
+
 def test_from_polygon():
     shape = Shape.circle([0, 0], 1)
     assert shape == Shape(shape.poly)
