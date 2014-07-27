@@ -314,7 +314,7 @@ class Shape:
         ----------
         angle : array-like
             The angle, in radians counter-clockwise from the horizontal axis,
-            defining the line about which to flip the shape.
+            defining the angle about which to flip the shape (of a line through `center`).
         center : array-like, optional
             The point about which to flip.
             If not passed, the center of the shape will be used.
