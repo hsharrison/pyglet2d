@@ -233,6 +233,10 @@ def test_intersection():
     assert Shape.rectangle([[-1, 0], [1, 2]]) & Shape.rectangle([[0, 0], [1, 1]]) == Shape.rectangle([[0, 0], [1, 1]])
 
 
+def test_difference():
+    assert Shape.rectangle([[-1, 0], [1, 3]]) - Shape.rectangle([[0, 0], [2, 3]]) == Shape.rectangle([[-1, 0], [0, 3]])
+
+
 def test_center():
     shape = Shape.rectangle([[-1, -1], [1, 1]])
     assert np.all(np.isclose(shape.center, [0, 0]))

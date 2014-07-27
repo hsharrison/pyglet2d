@@ -12,6 +12,7 @@ Changelog
 * ``graphics_test.py`` renamed to ``graphics_demo.py``.
 * Implement ``Shape.flip_x``, ``Shape.flip_y``, and ``Shape.flip``.
 * Explicitly set the ``Polygon3`` data style to ``STYLE_NUMPY``.
+* Implement ``Shape`` subtraction.
 
 0.1.2 (2014-07-26)
 ------------------

@@ -436,6 +436,8 @@ class Shape:
     __radd__ = __add__
 
     def __sub__(self, other):
+        if isinstance(other, Shape):
+            return type(self)(self.poly - other.poly)
         return type(self)(self.vertices - other, **self._kwargs)
 
     def __mul__(self, other):

@@ -48,7 +48,7 @@ Features
   A ``Shape`` can be given a velocity and/or an angular velocity, and it will be updated accordingly when ``Shape.update`` is called.
 - A ``Shape`` can be manipulated using the methods ``Shape.scale``, ``Shape.rotate``, ``Shape.flip_x``, ``Shape.flip_y``, ``Shape.flip``, and ``Shape.translate``, or with in-place arithmetic (e.g. ``shape += [5, 0]``).
 - Alternatively, setting the properties ``Shape.center`` and ``Shape.radius`` will translate and scale the shape, respectively.
-- Clipping operations provided by `polygon`_ are bound to the operators \|, &, and ^.
+- Clipping operations provided by `polygon`_ are bound to the operators \| (union), & (intersection), - (difference), and ^ (xor).
 - Additional `polygon`_ methods can be accessed directly from the ``Shape.poly`` attribute, where the ``Polygon`` object is stored.
 - Shortcuts are provided to `polygon`_ functions via the boolean methods ``Shape.overlaps(other)`` and ``Shape.covers(other)``.
 
