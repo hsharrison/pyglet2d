@@ -9,6 +9,7 @@ Changelog
 * Implemented ``Shape.rotate``.
 * Implemented angular velocity.
 * Argument ``start_angle`` in ``Shape.regular_polygon`` is now in radians.
+* ``graphics_test.py`` renamed to ``graphics_demo.py``.
 
 0.1.2 (2014-07-26)
 ------------------

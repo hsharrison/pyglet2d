@@ -56,11 +56,11 @@ Features
 Example
 =======
 
-See ``tests/graphics_test.py`` for a usage example.
+See ``tests/graphics_demo.py`` for a usage example.
 This script also serves as a test.
 Run it to make sure that your graphics pipeline is working correctly::
 
-    python tests/graphics_test.py
+    python tests/graphics_demo.py
 
 Requirements
 ============
