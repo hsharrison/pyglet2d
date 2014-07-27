@@ -392,19 +392,16 @@ class Shape:
         return bool(self.poly.covers(other.poly))
 
     def __repr__(self):
-        if self._kwargs:
-            kwarg_strs = []
-            for arg, value in self._kwargs.items():
-                if isinstance(value, str):
-                    value_str = "'{}'".format(value)
-                elif isinstance(value, np.ndarray):
-                    value_str = '[{}, {}]'.format(*value)
-                else:
-                    value_str = str(value)
-                kwarg_strs.append(arg + '=' + value_str)
-            kwargs = ',\n' + ', '.join(kwarg_strs)
-        else:
-            kwargs = ''
+        kwarg_strs = []
+        for arg, value in self._kwargs.items():
+            if isinstance(value, str):
+                value_str = "'{}'".format(value)
+            elif isinstance(value, np.ndarray):
+                value_str = '[{}, {}]'.format(*value)
+            else:
+                value_str = str(value)
+            kwarg_strs.append(arg + '=' + value_str)
+        kwargs = ',\n' + ', '.join(kwarg_strs)
 
         return '{cls}({points}{kwargs})'.format(
             cls=type(self).__name__,
