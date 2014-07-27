@@ -272,6 +272,11 @@ class Shape:
     def enable(self, enabled):
         """Set whether the shape should be drawn.
 
+        Parameters
+        ----------
+
+        enabled : bool
+
         """
         self.enabled = enabled
 
