@@ -127,7 +127,7 @@ def main(screen=None):
     center = [window.width/2, window.height/2]
     shapes = [Shape.circle(center, radius, **shape_kwargs)]
     shapes.extend(Shape.regular_polygon(center, radius, verts,
-                                        start_angle=np.random.random() * 360 / verts, **shape_kwargs)
+                                        start_angle=np.random.random() * 2 * np.pi / verts, **shape_kwargs)
                   for verts in range(3, MAX_POLYGON_VERTICES + 1))
     for shape in shapes[1:]:
         shape.enable(False)

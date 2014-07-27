@@ -43,7 +43,7 @@ def test_circle():
 
 def test_rectangle():
     rect = Shape.rectangle([[-1, -1], [1, 1]])
-    other_rect = Shape.regular_polygon([0, 0], np.sqrt(2), 4, start_angle=45)
+    other_rect = Shape.regular_polygon([0, 0], np.sqrt(2), 4, start_angle=np.pi/4)
     assert rect == other_rect
 
 

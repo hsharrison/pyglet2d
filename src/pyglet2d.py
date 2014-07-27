@@ -88,12 +88,12 @@ class Shape:
         n_vertices : int
         start_angle : float, optional
             Where to put the first point, relative to `center`,
-            in degrees counter-clockwise starting from the horizontal axis.
+            in radians counter-clockwise starting from the horizontal axis.
         kwargs
             Other keyword arguments are passed to the |Shape| constructor.
 
         """
-        angles = (np.arange(n_vertices) * 2 * np.pi / n_vertices) + (np.pi * start_angle / 180)
+        angles = (np.arange(n_vertices) * 2 * np.pi / n_vertices) + start_angle
         return cls(center + radius * np.array([np.cos(angles), np.sin(angles)]).T, **kwargs)
 
     @classmethod
