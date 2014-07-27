@@ -225,6 +225,14 @@ def test_covers():
     assert a.covers(b)
 
 
+def test_union():
+    assert Shape.rectangle([[-1, 0], [0, 1]]) | Shape.rectangle([[0, 0], [1, 1]]) == Shape.rectangle([[-1, 0], [1, 1]])
+
+
+def test_intersection():
+    assert Shape.rectangle([[-1, 0], [1, 2]]) & Shape.rectangle([[0, 0], [1, 1]]) == Shape.rectangle([[0, 0], [1, 1]])
+
+
 def test_center():
     shape = Shape.rectangle([[-1, -1], [1, 1]])
     assert np.all(np.isclose(shape.center, [0, 0]))
