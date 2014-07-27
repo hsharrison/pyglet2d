@@ -9,9 +9,10 @@ import numpy as np
 from pyglet2d import Shape
 
 
-VELOCITY_RANGE = (-500, 500)
+VELOCITY_RANGE = (-1000, 1000)
 VELOCITY_INCREMENT = 50
-RADIUS_RANGE = (50, 100)
+ANGULAR_VELOCITY_STD = 3 * np.pi / 2
+RADIUS_RANGE = (100, 200)
 RADIUS_INCREMENT = 5/4
 MAX_POLYGON_VERTICES = 12
 BUFFER = 5
@@ -53,9 +54,16 @@ def bounce(window, shapes):
     if new_velocity is not None:
         change_color(shapes)
         change_shape(shapes)
+        change_angular_velocity(shapes)
         for shape in shapes:
             shape.velocity = new_velocity
             shape.position = new_position
+
+
+def change_direction(shapes):
+    new_velocity = VELOCITY_RANGE[0] + np.random.sample(2) * np.diff(VELOCITY_RANGE)
+    for shape in shapes:
+        shape.velocity = new_velocity
 
 
 def change_color(shapes):
@@ -68,6 +76,11 @@ def change_shape(shapes):
     chosen_shape = random.choice([shape for shape in shapes if not shape.enabled])
     for shape in shapes:
         shape.enable(shape is chosen_shape)
+
+
+def change_angular_velocity(shapes):
+    for shape in shapes:
+        shape.angular_velocity = ANGULAR_VELOCITY_STD * np.random.normal()
 
 
 def bigger(shapes):
@@ -108,6 +121,7 @@ EVENTS = {
     pyglet.window.key.LEFT: slower,
     pyglet.window.key.C: change_color,
     pyglet.window.key.SPACE: change_shape,
+    pyglet.window.key.V: change_direction,
 }
 
 
@@ -122,13 +136,14 @@ def main(screen=None):
     else:
         window = pyglet.window.Window(fullscreen=True)
 
-    radius = RADIUS_RANGE[1] * np.random.sample() + RADIUS_RANGE[0]
-    shape_kwargs = {'velocity':  np.random.sample(2) * VELOCITY_RANGE[1] + VELOCITY_RANGE[0]}
+    radius = np.diff(RADIUS_RANGE) * np.random.sample() + RADIUS_RANGE[0]
+    shape_kwargs = {'velocity':  np.random.sample(2) * np.diff(VELOCITY_RANGE) + VELOCITY_RANGE[0]}
     center = [window.width/2, window.height/2]
     shapes = [Shape.circle(center, radius, **shape_kwargs)]
     shapes.extend(Shape.regular_polygon(center, radius, verts,
                                         start_angle=np.random.random() * 2 * np.pi / verts, **shape_kwargs)
                   for verts in range(3, MAX_POLYGON_VERTICES + 1))
+    change_angular_velocity(shapes)
     for shape in shapes[1:]:
         shape.enable(False)
 
@@ -144,6 +159,7 @@ Controls:
     LEFT/RIGHT: Change object speed.
     C: Change object color.
     SPACE: Change object shape.
+    V: Randomize object velocity.
     ESCAPE: Quit.
     """
     parser = ArgumentParser(description='Graphics test for pyglet2d.',
