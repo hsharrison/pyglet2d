@@ -45,7 +45,7 @@ Features
   ``Shape.regular_polygon``, ``Shape.circle``, ``Shape.rectangle``, and ``Shape.from_dict``.
   The latter is a specification-based constructor that is easy to use with JSON or YAML.
 - ``Shape`` has two methods that are useful as `pyglet`_ callbacks: ``Shape.draw`` and ``Shape.update``.
-  ``Shape``s can be given a velocity, and their positions will be updated when ``Shape.update`` is called.
+  A ``Shape`` can be given a velocity, and its position will be updated when ``Shape.update`` is called.
 - A ``Shape`` can be scaled and translated using the methods ``Shape.scale`` and ``Shape.translate``,
   or with in-place arithmetic.
 - Alternatively, setting the properties ``Shape.center`` and ``Shape.radius`` will translate and scale the shape, respectively.
