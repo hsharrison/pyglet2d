@@ -1,7 +1,7 @@
 --index-url https://pypi.python.org/simple/
 
 sphinx==1.1.3
-sphinxcontrib-napoleon
+numpydoc
 sphinx_rtd_theme
 -e hg+http://code.google.com/p/pyglet#egg=pyglet
 
