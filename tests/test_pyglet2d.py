@@ -124,10 +124,18 @@ def test_translate():
     assert shape == Shape.circle([10, 10], 1)
 
 
-def test_resize():
+def test_scale():
     shape = Shape.circle([0, 0], 1)
     shape.scale(10)
     assert shape == Shape.circle([0, 0], 10)
+
+    shape = Shape.rectangle([[-1, -1], [1, 1]])
+    shape.scale([2, 5])
+    assert shape == Shape.rectangle([[-2, -5], [2, 5]])
+
+    shape = Shape.rectangle([[-1, -1], [1, 1]])
+    shape.scale(2, center=[1, 1])
+    assert shape == Shape.rectangle([[-3, -3], [1, 1]])
 
 
 def test_from_polygon():

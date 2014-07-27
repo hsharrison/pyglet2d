@@ -2,6 +2,11 @@
 Changelog
 =========
 
+0.2.0 (in development)
+----------------------
+
+* Added optional arguments ``y_factor`` and ``center`` to ``Shape.scale``.
+
 0.1.2 (2014-07-26)
 ------------------
 
