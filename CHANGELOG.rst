@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.2.0 (in development)
-----------------------
+0.2.0 (2014-07-27)
+------------------
 
 * Added optional arguments ``y_factor`` and ``center`` to ``Shape.scale``.
 * Implemented ``Shape.rotate``.
