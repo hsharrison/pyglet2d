@@ -2,6 +2,11 @@
 Changelog
 =========
 
+0.2.1 (2014-07-27)
+------------------
+
+* All in-place operations now return the ``Shape``, allowing operations to be chained.
+
 0.2.0 (2014-07-27)
 ------------------
 

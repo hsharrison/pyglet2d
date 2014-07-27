@@ -249,6 +249,7 @@ class Shape:
             args.extend(center)
 
         self.poly.scale(*args)
+        return self
 
     def translate(self, vector):
         """Translate the shape along a vector, in-place.
@@ -276,6 +277,7 @@ class Shape:
         if center is not None:
             args.extend(center)
         self.poly.rotate(*args)
+        return self
 
     def flip_x(self, center=None):
         """Flip the shape in the x direction, in-place.
@@ -306,6 +308,7 @@ class Shape:
             self.poly.flop()
         else:
             self.poly.flop(center[1])
+        return self
 
     def flip(self, angle, center=None):
         """ Flip the shape in an arbitrary direction.
@@ -320,9 +323,7 @@ class Shape:
             If not passed, the center of the shape will be used.
 
         """
-        self.rotate(-angle, center=center)
-        self.flip_y(center=center)
-        self.rotate(angle, center=center)
+        return self.rotate(-angle, center=center).flip_y(center=center).rotate(angle, center=center)
 
     def _get_vertex_list(self):
         indices = []
@@ -362,6 +363,7 @@ class Shape:
 
         """
         self.enabled = enabled
+        return self
 
     def overlaps(self, other):
         """Check if two shapes overlap.
