@@ -237,6 +237,12 @@ def test_difference():
     assert Shape.rectangle([[-1, 0], [1, 3]]) - Shape.rectangle([[0, 0], [2, 3]]) == Shape.rectangle([[-1, 0], [0, 3]])
 
 
+def test_xor():
+    assert Shape.rectangle([[-1, 0], [0, 1]]) ^ Shape.rectangle([[0, 0], [1, 1]]) == Shape.rectangle([[-1, 0], [1, 1]])
+    assert ((Shape.rectangle([[-1, 0], [0.5, 1]]) ^ Shape.rectangle([[-0.5, 0], [1, 1]])) ==
+            (Shape.rectangle([[-1, 0], [1, 1]])) - Shape.rectangle([[-0.5, 0], [0.5, 1]]))
+
+
 def test_center():
     shape = Shape.rectangle([[-1, -1], [1, 1]])
     assert np.all(np.isclose(shape.center, [0, 0]))
