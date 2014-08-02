@@ -53,7 +53,7 @@ setup(
         "Topic :: Multimedia :: Graphics",
     ],
     keywords=[
-        # eg: "keyword1", "keyword2", "keyword3",
+        '2D', 'geometry', 'graphics', 'shape', 'shapes', 'polygon', 'polygons', 'pyglet', 'opengl'
     ],
 
     install_requires=[
